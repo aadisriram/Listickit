@@ -1,0 +1,21 @@
+<html>
+  <body>
+    {% for listick in listicks %}
+      {% if listick.author %}
+        <b>{{ listick.author }}</b> wrote:
+      {% else %}
+        An anonymous person wrote:
+      {% endif %}
+      <blockquote>{{ listick.content|escape }}</blockquote>
+    {% endfor %}
+
+    <form action="/sign" method="post">
+      <div><input type ="text" name="content"></input></div>
+      <div><input type="text" name="listick_name"></input></div>
+      <div><input type="submit" value="Listick It!"></div>
+    </form>
+
+    <a href="{{ url }}">{{ url_linktext }}</a>
+
+  </body>
+</html>
